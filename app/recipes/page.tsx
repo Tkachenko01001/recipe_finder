@@ -11,10 +11,26 @@ const Page = async (props: { searchParams: SearchParams }) => {
 
   const data = await getRecipes({ query, cuisine, maxReadyTime })
 
+  if (data.status === 'failure') {
+    return (
+      <div className="container mx-auto px-4 py-12 text-center">
+        <h1 className="text-2xl font-bold">{data.message}</h1>
+      </div>
+    )
+  }
+  
   if (data.results.length === 0) {
     return (
       <div className="container mx-auto px-4 py-12 text-center">
-        <h1 className="text-2xl font-bold">Nothing found matching your request</h1>
+        <h1 className="text-2xl font-bold">Nothing found matching your request!</h1>
+      </div>
+    )
+  }
+
+  if (!data) {
+    return (
+      <div className="container mx-auto px-4 py-12 text-center">
+        <h1 className="text-2xl font-bold">Oops, an unexpected error occurred!</h1>
       </div>
     )
   }

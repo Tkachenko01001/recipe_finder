@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌟 Recipe Finder - Frontend JS Engineer Test Assessment
 
-## Getting Started
+## 📌 Description
+This is a test assessment for creating a **Recipe Finder** application using Next.js. The application allows users to search for recipes based on keywords, select cuisine types, filter by preparation time, view search results, and check detailed recipe information.
 
-First, run the development server:
+## 🚀 Installation and Setup
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Install dependencies:**  
+   ```bash
+   npm install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Run the development server:**  
+   ```bash
+   npm run dev
+   ```  
+   Then, open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Run code linting:**  
+   ```bash
+   npm run lint
+   ```  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. **Build the project:**  
+   ```bash
+   npm run build
+   ```  
 
-## Learn More
+## 📂 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- **🏠 Home Page (`/`)**  
+  - A search form with fields:
+    - 🔍 Text input for searching recipes.
+    - 🍽 Dropdown for selecting cuisine type.
+    - ⏳ Input for specifying maximum preparation time.
+  - A **"Next"** button, which is enabled when at least one field is filled.
+  - Redirects to **`/recipes`** with query parameters.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **📜 Recipes Page (`/recipes`)**  
+  - Fetches recipe data from **Spoonacular API** using SSR.
+  - Displays a list of recipes with their **title** and **image**.
+  - Clicking on a recipe navigates to **`/recipes/[id]`**.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **📖 Recipe Details Page (`/recipes/[id]`)**  
+  - Loads recipe details from the API.
+  - Displays the **recipe title**, **ingredients**, and additional information.
 
-## Deploy on Vercel
+## 🛠 Technologies Used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- ⚛️ **Next.js** - Uses SSR for fetching recipes.
+- 🎨 **Tailwind CSS** - For styling components.
+- ⏳ **React Suspense** - To handle loading states.
+- 🔍 **ESLint & Prettier** - Code linting and formatting.
+- 🎨 **ShadcnUI** - For styling components.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔑 API Setup
+
+1. Sign up at [Spoonacular](https://spoonacular.com/food-api/docs#Authentication).
+2. Create a `.env.local` file and add the API key:
+   ```bash
+   BASE_URL=BASE_API_URL
+   API_KEY=YOUR_API_KEY
+   ```  
+
